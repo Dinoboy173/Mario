@@ -36,7 +36,7 @@ namespace AIE_02_Raylib_Mario
         {
             // TODO: Load game assets here
             marioTexture = Raylib.LoadTexture("./assets/mario_1.png");
-            crateTexture = Raylib.LoadTexture("./assests/crate_1.png");
+            crateTexture = Raylib.LoadTexture("./assets/crate_1.png");
         }
 
         public void Update(float deltaTime)
@@ -64,6 +64,15 @@ namespace AIE_02_Raylib_Mario
             {
                 marioYPos -= jumpForce;
                 jumpForce -= 1;
+                else (jumpForce = 10)
+                {
+                    jumpForce = resetJumpForce;
+                    if (Raylib.IsKeyDown(KeyboardKey.KEY_SPACE))
+                    {
+                        marioYPos -= jumpForce;
+                        jumpForce -= 1;
+                    }
+                }
             }
 
             //make mario fall
@@ -72,6 +81,11 @@ namespace AIE_02_Raylib_Mario
             if( marioYPos > windowHeight )
             {
                 marioYPos = windowHeight;
+                jumpForce = resetJumpForce;
+            }
+            if( marioYPos > crateYPos )
+            {
+                marioYPos = crateYPos;
                 jumpForce = resetJumpForce;
             }
             
