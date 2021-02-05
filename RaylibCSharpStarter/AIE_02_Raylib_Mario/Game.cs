@@ -18,10 +18,10 @@ namespace AIE_02_Raylib_Mario
         float marioHeight = 32;
 
         Texture2D crateTexture;
-        float crateXPos = 0
-        float crateYPos = 428
-        float crateWidth = 32
-        float crateHeight = 32
+        float crateXPos = 0;
+        float crateYPos = 428;
+        float crateWidth = 32;
+        float crateHeight = 32;
         
 
         float marioSpeed = 3;
@@ -64,14 +64,14 @@ namespace AIE_02_Raylib_Mario
             {
                 marioYPos -= jumpForce;
                 jumpForce -= 1;
-                else (jumpForce = 10)
+            }
+            if (jumpForce == 10)
+            {
+                jumpForce = resetJumpForce;
+                if (Raylib.IsKeyDown(KeyboardKey.KEY_SPACE))
                 {
-                    jumpForce = resetJumpForce;
-                    if (Raylib.IsKeyDown(KeyboardKey.KEY_SPACE))
-                    {
-                        marioYPos -= jumpForce;
-                        jumpForce -= 1;
-                    }
+                    marioYPos -= jumpForce;
+                    jumpForce -= 1;
                 }
             }
 
