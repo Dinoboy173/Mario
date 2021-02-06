@@ -83,7 +83,7 @@ namespace AIE_02_Raylib_Mario
                 marioYPos = windowHeight;
                 jumpForce = resetJumpForce;
             }
-            if( marioYPos > crateYPos )
+            if( marioYPos > crateYPos)
             {
                 marioYPos = crateYPos;
                 jumpForce = resetJumpForce;
